@@ -1,0 +1,18 @@
+Использую методы:
+
+1. String.prototype.split() https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/split
+Преобразование строки в массив используя разделитель элементов строки. Обратный метод от join()
+
+2. Array.prototype.reverse() https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reverse?v=example
+Перестановка элементов массива, "первый становится последним и т.д."
+
+3.Array.prototype.join() https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/join?v=example
+Объединяет массив в строку используя разделитель, который будет в строке (обратный метод от split())
+
+
+function reverseString(str) {
+ 
+   return str.split('').reverse().join('');
+}
+
+Выполнил Apr 22, 2017 - Единственное решение (Basic, Intermediate and Advanced)
