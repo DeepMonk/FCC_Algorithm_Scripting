@@ -1,0 +1,49 @@
+Первый вариант:
+
+function myReplace(str, before, after) {
+  
+  if (before.charCodeAt(0)<=90)
+    {   
+    var arrAfter=after.split('');
+    arrAfter.splice(0, 1, after[0].toUpperCase());
+    after=arrAfter.join('');
+    }
+  return str.replace(before, after);
+}
+
+Выполнил May 07, 2017
+
+Доделать используя в качестве заменителя в replace() анонимную функцию заменяющую если надо первую букву.
+и по хорошему надо делать преобразование в нижний регистр если в before нижний, а в after верхний:
+
+else
+{
+ {   
+    var arrAfter=after.split('');
+    arrAfter.splice(0, 1, after[0].toLowerCase());
+    after=arrAfter.join('');
+    }	
+} 
+
+ // after=arrAfter.splice(0, 1, after[0].toUpperCase()).join(''); //не работает
+ //after=after.split('').splice(0, 1, after[0].toUpperCase()).join(''); //не работает
+
+ Использую методы:
+
+1. String.prototype.charCodeAt() https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/charCodeAt
+возвращает числовое значение Юникода для символа по указанному индексу
+
+2. String.prototype.split() https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/split
+Преобразование строки в массив используя разделитель элементов строки. Обратный метод от join()
+
+3.Array.prototype.join() https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/join?v=example
+Объединяет массив в строку используя разделитель, который будет в строке (обратный метод от split())
+
+4.Array.prototype.splice() https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice?v=example
+Изменяет содержимое массива, удаляя существующие элементы и/или добавляя новые.
+
+5.String.prototype.replace() https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace
+возвращает новую строку с некоторыми или всеми сопоставлениями с шаблоном, заменёнными на заменитель. Шаблон может быть строкой или регулярным выражением, а заменитель может быть строкой или функцией, вызываемой при каждом сопоставлении.
+
+6.toUpperCase()
+7.toLowerCase()
