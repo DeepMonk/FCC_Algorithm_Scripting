@@ -11,7 +11,7 @@ function myReplace(str, before, after) {
   return str.replace(before, after);
 }
 
-Выполнил May 07, 2017
+Выполнил June 07, 2017
 
 Доделать используя в качестве заменителя в replace() анонимную функцию заменяющую если надо первую букву.
 и по хорошему надо делать преобразование в нижний регистр если в before нижний, а в after верхний:
@@ -27,6 +27,32 @@ else
 
  // after=arrAfter.splice(0, 1, after[0].toUpperCase()).join(''); //не работает
  //after=after.split('').splice(0, 1, after[0].toUpperCase()).join(''); //не работает
+
+ Второй вариант:
+
+ function myReplace(str, before, after) {
+
+    return str.replace(before, function () {
+     var arrAfter=after.split('');
+     before.charCodeAt(0)<=90 ? arrAfter.splice(0, 1, after[0].toUpperCase()) : arrAfter.splice(0, 1, after[0].toLowerCase());
+      return arrAfter.join(''); 
+    });
+}
+
+Выполнил June 09, 2017
+
+Сделал, что хотел.
+
+Но можно было слегка по-другому
+
+function myReplace(str, before, after) {
+
+    return str.replace(before, function () {
+        return before.charCodeAt(0)<=90 ? after.charAt(0).toUpperCase()+after.slice(1) : after.charAt(0).toLowerCase()+after.slice(1);
+    });
+}
+
+ Немного не хватило.
 
  Использую методы:
 
@@ -47,3 +73,6 @@ else
 
 6.toUpperCase()
 7.toLowerCase()
+
+8.String.prototype.slice() https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/slice
+извлекает часть строки и возвращает новую строку.
